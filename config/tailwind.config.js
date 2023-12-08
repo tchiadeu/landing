@@ -23,10 +23,8 @@ module.exports = {
       emerald: colors.emerald,
       indigo: colors.indigo,
       yellow: colors.yellow,
-      primary: {
-        basic: '#1e2b45',
-        hover: '#075985',
-      },
+      sky: colors.sky,
+      primary: '#1e2b45',
     },
   },
   plugins: [

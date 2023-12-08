@@ -13,6 +13,11 @@
  *= require_tree .
  *= require_self
  */
+
+.custom-gradiant {
+  background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(7,89,133,0.22470238095238093) 100%);
+}
+
 .leadz-container {
   background-color: #111827;
   width: 100vw;
