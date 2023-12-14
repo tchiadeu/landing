@@ -11,10 +11,8 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body data-controller="">
-    <%= render "pages/navbar" %>
-    <main class="container mx-auto">
-      <%= yield %>
-    </main>
+  <body data-controller="loading navbar">
+    <%= render 'pages/navbar' %>
+    <%= yield %>
   </body>
 </html>
