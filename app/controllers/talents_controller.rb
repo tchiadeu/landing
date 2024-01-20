@@ -15,6 +15,6 @@ class TalentsController < ApplicationController
   private
 
   def talent_params
-    params.require(:talent).permit(:first_name, :last_name, :job, :scoail_network, :avatar)
+    params.require(:talent).permit(:first_name, :last_name, :job, :social_network, :photo)
   end
 end
