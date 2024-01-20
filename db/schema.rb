@@ -10,7 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_01_20_125754) do
+ActiveRecord::Schema[7.0].define(version: 2024_01_20_130942) do
+  create_table "references", force: :cascade do |t|
+    t.string "name"
+    t.string "url"
+    t.string "logo"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "sections", force: :cascade do |t|
+    t.string "title"
+    t.string "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "talents", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
@@ -19,6 +34,17 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_20_125754) do
     t.string "avatar"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "tasks", force: :cascade do |t|
+    t.string "title"
+    t.string "description"
+    t.string "category"
+    t.string "icone"
+    t.integer "reference_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["reference_id"], name: "index_tasks_on_reference_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -34,4 +60,5 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_20_125754) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "tasks", "references"
 end
