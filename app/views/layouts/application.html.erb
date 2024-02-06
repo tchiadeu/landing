@@ -13,6 +13,8 @@
 
   <body data-controller="loading navbar">
     <%= render 'pages/navbar' %>
-    <%= yield %>
+    <div data-loading-target="container" class="displayed relative w-screen h-screen">
+      <%= yield %>
+    </div>
   </body>
 </html>
