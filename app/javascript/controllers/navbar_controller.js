@@ -4,7 +4,13 @@ export default class extends Controller {
   static targets = [ "navbar", "button", "section", "input" ]
 
   changeSection(event) {
+    new ResizeObserver(() => {
+      const contactSection = this.sectionTargets.find((element) => element.getAttribute("data-section") === "contact")
+      this.resizeSection(contactSection)
+    }).observe(document.body)
+    this.navbarTarget.classList.remove("appear-animation")
     const section = event.currentTarget.getAttribute("data-section")
+    if (section === "agency") { this.sectionTarget.classList.remove("appear-animation") }
     const contactButton = this.element.querySelector("button[data-section='contact']")
     const logo = this.element.querySelectorAll("button[data-section='agency']")[0]
     this.sectionTargets.forEach((element) => {
@@ -49,6 +55,8 @@ export default class extends Controller {
         }
       })
     } else if (section === "talent") {
+      const talentSection = this.sectionTargets.find((element) => element.getAttribute("data-section") === "talent")
+      this.resizeSection(talentSection)
       logo.querySelectorAll("div").forEach((div) => {
         div.classList.add("bg-white")
         div.classList.remove("bg-black")
@@ -74,6 +82,8 @@ export default class extends Controller {
         }
       })
     } else {
+      const contactSection = this.sectionTargets.find((element) => element.getAttribute("data-section") === "contact")
+      this.resizeSection(contactSection)
       logo.querySelectorAll("div").forEach((div) => {
         div.classList.add("bg-white")
         div.classList.remove("bg-black")
@@ -89,6 +99,17 @@ export default class extends Controller {
         element.classList.add("text-gray-300")
       })
       this.inputTarget.focus()
+    }
+  }
+
+  resizeSection(target) {
+    const height = target.getBoundingClientRect().height
+    const viewportHeight = window.innerHeight
+    console.log(height, viewportHeight)
+    if (height <= viewportHeight) {
+      target.classList.add("h-screen")
+    } else {
+      target.classList.remove("h-screen")
     }
   }
 
