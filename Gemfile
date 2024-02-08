@@ -78,3 +78,8 @@ gem "devise", "~> 4.9"
 gem "dotenv-rails"
 
 gem "cloudinary"
+
+gem 'actionmailer', require: 'action_mailer/railtie'
+
+gem 'letter_opener', group: :development
+gem "letter_opener_web"

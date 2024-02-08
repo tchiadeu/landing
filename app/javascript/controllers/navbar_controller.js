@@ -3,11 +3,12 @@ import { Controller } from "@hotwired/stimulus"
 export default class extends Controller {
   static targets = [ "navbar", "button", "section", "input" ]
 
+  connect() {
+    this.contactCount = 0
+    this.talentCount = 0
+  }
+
   changeSection(event) {
-    new ResizeObserver(() => {
-      const contactSection = this.sectionTargets.find((element) => element.getAttribute("data-section") === "contact")
-      this.resizeSection(contactSection)
-    }).observe(document.body)
     this.navbarTarget.classList.remove("appear-animation")
     const section = event.currentTarget.getAttribute("data-section")
     if (section === "agency") { this.sectionTarget.classList.remove("appear-animation") }
@@ -56,7 +57,10 @@ export default class extends Controller {
       })
     } else if (section === "talent") {
       const talentSection = this.sectionTargets.find((element) => element.getAttribute("data-section") === "talent")
-      this.resizeSection(talentSection)
+      if (this.talentCount === 0) {
+        this.talentCount += 1
+        this.resizeSection(talentSection)
+      }
       logo.querySelectorAll("div").forEach((div) => {
         div.classList.add("bg-white")
         div.classList.remove("bg-black")
@@ -83,7 +87,11 @@ export default class extends Controller {
       })
     } else {
       const contactSection = this.sectionTargets.find((element) => element.getAttribute("data-section") === "contact")
-      this.resizeSection(contactSection)
+      if (this.contactCount === 0) {
+        this.contactCount += 1
+        console.log(this.contactCount)
+        this.resizeSection(contactSection)
+      }
       logo.querySelectorAll("div").forEach((div) => {
         div.classList.add("bg-white")
         div.classList.remove("bg-black")
