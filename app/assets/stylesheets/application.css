@@ -361,6 +361,23 @@
   animation: displayed 50ms ease-in-out forwards 6250ms;
 }
 
+.glow-overlay {
+  --glow-size: 25rem; /* Change here the size of the glow effect */
+
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  user-select: none;
+  opacity: var(--glow-opacity, 0);
+  mask: radial-gradient(
+    var(--glow-size) var(--glow-size) at var(--glow-x) var(--glow-y),
+    var(--glow-color) 1%,
+    transparent 50%
+  );
+  transition: 400ms mask ease;
+  will-change: mask;
+}
+
 @keyframes appear {
   0% {
     opacity: 0;
@@ -376,62 +393,6 @@
     overflow: visible;
   }
 }
-
-/* .slide-in-top {
-  animation: slide-in-top 200ms ease-in-out forwards;
-}
-
-.slide-in-bottom {
-  animation: slide-in-bottom 200ms ease-in-out forwards;
-}
-
-.downscale {
-  animation: downscale 200ms ease-in-out forwards;
-}
-
-.good-position {
-  animation: good-position 200ms ease-in-out forwards;
-}
-
-.leadz-properties {
-  animation: leadz-properties 200ms ease-in-out forwards;
-}
-
-.letters-appear {
-  animation: letters-appear 200ms ease-in-out forwards;
-}
-
-.l-horizontal-appear {
-  animation: l-horizontal-appear 200ms ease-in-out forwards;
-}
-
-.leadz-l-vertical-appear {
-  animation: l-vertical-appear 200ms ease-in-out forwards;
-}
-
-.block-slide-right {
-  animation: block-slide-right 150ms ease-in-out forwards;
-}
-
-.a-left-appear {
-  animation: a-left-appear 200ms ease-in-out forwards;
-}
-
-.a-right-appear {
-  animation: a-right-appear 200ms ease-in-out forwards;
-}
-
-.d-bottom-appear {
-  animation: d-bottom-appear 200ms ease-in-out forwards;
-}
-
-.d-right-appear {
-  animation: d-right-appear 200ms ease-in-out forwards;
-}
-
-.d-top-appear {
-  animation: d-top-appear 200ms ease-in-out forwards;
-} */
 
 @keyframes slide-in-top {
   0% {

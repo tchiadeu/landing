@@ -1,12 +1,14 @@
 const defaultTheme = require('tailwindcss/defaultTheme')
 const colors = require('tailwindcss/colors')
+const plugin = require('tailwindcss/plugin')
 
 module.exports = {
   content: [
     './public/*.html',
     './app/helpers/**/*.rb',
     './app/javascript/**/*.js',
-    './app/views/**/*.{erb,haml,html,slim}'
+    './app/views/**/*.{erb,haml,html,slim}',
+    './index.html', './src/**/*.{js,ts,jsx,tsx}',
   ],
   theme: {
     extend: {
@@ -28,6 +30,20 @@ module.exports = {
     },
   },
   plugins: [
+    plugin(
+      ({ addVariant }) => {
+        addVariant('glow', '.glow-capture .glow-overlay &')
+      },
+      {
+        theme: {
+          extend: {
+            colors: {
+              glow: 'color-mix(in srgb, var(--glow-color) calc(<alpha-value> * 100%), transparent)',
+            },
+          },
+        },
+      },
+    ),
     require('@tailwindcss/forms'),
     require('@tailwindcss/aspect-ratio'),
     require('@tailwindcss/typography'),
