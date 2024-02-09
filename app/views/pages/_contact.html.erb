@@ -80,7 +80,7 @@
         </p>
       </div>
     </div>
-    <%= form_with(url: '/send_contact', method: 'post', class: "px-6 pb-24 pt-20 sm:pb-32 lg:px-8 lg:py-48") do |form| %>
+    <%= form_with(url: '/send_contact', method: 'post', class: "px-6 pb-24 pt-20 sm:pb-32 lg:px-8 lg:py-48", data: {controller: "submit"}) do |form| %>
       <div class="mx-auto max-w-xl lg:mr-0 lg:max-w-lg">
         <div class="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
           <div>
@@ -115,7 +115,7 @@
           </div>
         </div>
         <div class="mt-8 flex justify-end">
-          <%= form.submit 'Envoyer', class: 'rounded-md bg-white px-3.5 py-2.5 text-center text-sm font-semibold text-black shadow-sm hover:bg-gray-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-200' %>
+          <%= form.submit 'Envoyer', data: {action: "click->submit#submitForm"}, class: 'cursor-pointer rounded-md bg-white px-3.5 py-2.5 text-center text-sm font-semibold text-black shadow-sm hover:bg-gray-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-200' %>
         </div>
       </div>
     <% end %>

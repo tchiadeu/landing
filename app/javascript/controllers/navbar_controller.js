@@ -89,7 +89,6 @@ export default class extends Controller {
       const contactSection = this.sectionTargets.find((element) => element.getAttribute("data-section") === "contact")
       if (this.contactCount === 0) {
         this.contactCount += 1
-        console.log(this.contactCount)
         this.resizeSection(contactSection)
       }
       logo.querySelectorAll("div").forEach((div) => {
@@ -113,7 +112,6 @@ export default class extends Controller {
   resizeSection(target) {
     const height = target.getBoundingClientRect().height
     const viewportHeight = window.innerHeight
-    console.log(height, viewportHeight)
     if (height <= viewportHeight) {
       target.classList.add("h-screen")
     } else {
