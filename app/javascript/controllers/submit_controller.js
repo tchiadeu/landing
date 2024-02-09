@@ -22,6 +22,11 @@ export default class extends Controller {
       event.preventDefault()
       this.flash("alert", "Veuillez remplir tous les champs")
     } else {
+      fields.forEach((field) => {
+        field.classList.remove("border-red-400")
+        field.classList.remove("border-2")
+        field.classList.remove("border-solid")
+      })
       fetch("/send_contact",
         {
           method: "POST",
@@ -47,9 +52,9 @@ export default class extends Controller {
 
   flash(messageType, message) {
     const color = messageType === "notice" ? "green" : "yellow"
-    const flash = `<div data-controller="notification" aria-live="assertive" class="mt-10 pointer-events-none fixed inset-0 flex items-end px-4 py-6 sm:items-start sm:p-6 z-10">
+    const flash = `<div data-controller="notification" aria-live="assertive" class="mt-10 fixed pointer-events-none inset-0 flex items-end px-4 py-6 sm:p-6 z-10">
     <div class="flex w-full flex-col items-center space-y-4 sm:items-end">
-    <div class="pointer-events-auto w-full max-w-sm overflow-hidden rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 bg-${color}-50 border border-solid border-${color}-400">
+    <div class="pointer-events-auto w-full max-w-sm overflow-hidden rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 border border-solid border-${color}-400">
     <div class="p-4"><div class="flex items-center"><div class="flex-shrink-0">
     <svg class="h-6 w-6 text-${color}-400" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
     <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />

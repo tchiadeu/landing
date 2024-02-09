@@ -5,6 +5,6 @@ class ContactMailer < ApplicationMailer
     @phone = phone
     @email = email
     @message = message
-    mail(to: 'kevin.tchiadeu@gmail.com', subject: "Contact - #{first_name.capitalize} #{last_name.upcase}")
+    mail(to: 'oneleadz@gmail.com', subject: "Contact - #{first_name.capitalize} #{last_name.upcase}")
   end
 end
