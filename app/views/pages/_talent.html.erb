@@ -1,4 +1,4 @@
-<div data-navbar-target="section" data-section="talent" class="hidden relative isolate bg-gray-900 py-24 sm:py-32 w-full">
+<div data-navbar-target="section" data-loading-target="talent" data-section="talent" class="hidden relative isolate bg-gray-900 py-24 sm:py-32 w-full">
   <svg class="-z-10 absolute inset-0 h-full w-full stroke-gray-700 [mask-image:radial-gradient(100%_100%_at_top_right,white,transparent)]" aria-hidden="true">
     <defs>
       <pattern id="54f88622-e7f8-4f1d-aaf9-c2f5e46dd1f2" width="200" height="200" x="100%" y="-1" patternUnits="userSpaceOnUse">
@@ -16,56 +16,46 @@
   <div class="mx-auto max-w-7xl px-6 text-center lg:px-8">
     <div class="mx-auto max-w-2xl">
       <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">Talents</h2>
-      <p class="mt-4 text-lg leading-8 text-gray-400">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Impedit repellendus illum maiores praesentium quos?</p>
+      <p class="mt-4 text-lg leading-8 text-gray-400">La communication passe également par l'incarnation. Découvrez nos talents qui valoriseront vos produits et services de la meilleure des manières.</p>
     </div>
     <ul role="list" class="mx-auto mt-20 grid max-w-2xl grid-cols-1 gap-6 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-3 lg:gap-8">
-      <li class="rounded-2xl bg-gray-800 px-8 py-10">
-        <%= image_tag("talents/CHP-3.jpg", class: "mx-auto h-48 w-48 rounded-full md:h-56 md:w-56") %>
-        <h3 class="mt-6 text-base font-semibold leading-7 tracking-tight text-white">CHP</h3>
-        <p class="text-sm leading-6 text-gray-400">Cinéma – Séries</p>
-        <button data-action="click->navbar#changeSection" data-section="contact" class="border-2 border-solid border-white rounded-md hover:border-gray-200 hover:bg-gray-200 text-sm px-3 py-2 font-bold text-white hover:text-black mt-6">Book now</button>
-        <ul role="list" class="mt-6 flex justify-center gap-x-6">
-          <li>
-            <a href="#" class="text-gray-400 hover:text-gray-300">
-              <span class="sr-only">Twitter</span>
-              <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
-                <path d="M6.29 18.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0020 3.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.073 4.073 0 01.8 7.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 010 16.407a11.616 11.616 0 006.29 1.84" />
-              </svg>
-            </a>
-          </li>
-          <li>
-            <a href="#" class="text-gray-400 hover:text-gray-300">
-              <span class="sr-only">LinkedIn</span>
-              <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
-                <path fill-rule="evenodd" d="M16.338 16.338H13.67V12.16c0-.995-.017-2.277-1.387-2.277-1.39 0-1.601 1.086-1.601 2.207v4.248H8.014v-8.59h2.559v1.174h.037c.356-.675 1.227-1.387 2.526-1.387 2.703 0 3.203 1.778 3.203 4.092v4.711zM5.005 6.575a1.548 1.548 0 11-.003-3.096 1.548 1.548 0 01.003 3.096zm-1.337 9.763H6.34v-8.59H3.667v8.59zM17.668 1H2.328C1.595 1 1 1.581 1 2.298v15.403C1 18.418 1.595 19 2.328 19h15.34c.734 0 1.332-.582 1.332-1.299V2.298C19 1.581 18.402 1 17.668 1z" clip-rule="evenodd" />
-              </svg>
-            </a>
-          </li>
-        </ul>
+      <li data-controller="glow" class="relative glow-capture">
+        <div data-glow-target="child" class="glow glow:ring-1 glow:border-glow glow:ring-glow glow:bg-glow/[.15] rounded-2xl bg-gray-800 px-8 py-10 border-2 border-solid border-gray-700">
+          <%= image_tag("talents/CHP-3.jpg", class: "mx-auto h-48 w-48 rounded-full md:h-56 md:w-56") %>
+          <h3 class="mt-6 text-base font-semibold leading-7 tracking-tight text-white">CHP</h3>
+          <p class="text-sm leading-6 text-gray-400">Cinéma – Séries</p>
+          <button data-action="click->navbar#changeSection" data-section="contact" class="border-2 border-solid border-white rounded-md hover:border-[#D40023] hover:bg-[#D40023] text-sm px-3 py-2 font-bold text-white mt-6">Contactez-nous</button>
+          <ul role="list" class="mt-6 flex justify-center gap-x-6">
+            <li>
+              <a href="https://www.tiktok.com/@cebonvieuxchp" target="_blank" class="text-gray-400 hover:text-[#D40023]">
+                <span class="sr-only">TikTok</span>
+                <svg class="w-7 aspect-square" fill="currentColor" viewBox="0 0 448 512">
+                  <path d="M448 209.9a210.1 210.1 0 0 1 -122.8-39.3V349.4A162.6 162.6 0 1 1 185 188.3V278.2a74.6 74.6 0 1 0 52.2 71.2V0l88 0a121.2 121.2 0 0 0 1.9 22.2h0A122.2 122.2 0 0 0 381 102.4a121.4 121.4 0 0 0 67 20.1z"/>
+                </svg>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div data-glow-target="overlay" class="glow-overlay" style="--glow-color: #D40023"></div>
       </li>
-      <li class="rounded-2xl bg-gray-800 px-8 py-10">
-        <%= image_tag("talents/Clémence.jpg", class: "mx-auto h-48 w-48 rounded-full md:h-56 md:w-56") %>
-        <h3 class="mt-6 text-base font-semibold leading-7 tracking-tight text-white">Clémence</h3>
-        <p class="text-sm leading-6 text-gray-400">Lifestyle</p>
-        <button data-action="click->navbar#changeSection" data-section="contact" class="border-2 border-solid border-white rounded-md hover:border-gray-200 hover:bg-gray-200 text-sm px-3 py-2 font-bold text-white hover:text-black mt-6">Book now</button>
-        <ul role="list" class="mt-6 flex justify-center gap-x-6">
-          <li>
-            <a href="#" class="text-gray-400 hover:text-gray-300">
-              <span class="sr-only">Twitter</span>
-              <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
-                <path d="M6.29 18.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0020 3.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.073 4.073 0 01.8 7.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 010 16.407a11.616 11.616 0 006.29 1.84" />
-              </svg>
-            </a>
-          </li>
-          <li>
-            <a href="#" class="text-gray-400 hover:text-gray-300">
-              <span class="sr-only">LinkedIn</span>
-              <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
-                <path fill-rule="evenodd" d="M16.338 16.338H13.67V12.16c0-.995-.017-2.277-1.387-2.277-1.39 0-1.601 1.086-1.601 2.207v4.248H8.014v-8.59h2.559v1.174h.037c.356-.675 1.227-1.387 2.526-1.387 2.703 0 3.203 1.778 3.203 4.092v4.711zM5.005 6.575a1.548 1.548 0 11-.003-3.096 1.548 1.548 0 01.003 3.096zm-1.337 9.763H6.34v-8.59H3.667v8.59zM17.668 1H2.328C1.595 1 1 1.581 1 2.298v15.403C1 18.418 1.595 19 2.328 19h15.34c.734 0 1.332-.582 1.332-1.299V2.298C19 1.581 18.402 1 17.668 1z" clip-rule="evenodd" />
-              </svg>
-            </a>
-          </li>
-        </ul>
+      <li data-controller="glow" class="relative glow-capture">
+        <div data-glow-target="child" class="glow glow:ring-1 glow:border-glow glow:ring-glow glow:bg-glow/[.15] rounded-2xl bg-gray-800 px-8 py-10 border-2 border-solid border-gray-700">
+          <%= image_tag("talents/Clémence.jpg", class: "mx-auto h-48 w-48 rounded-full md:h-56 md:w-56") %>
+          <h3 class="mt-6 text-base font-semibold leading-7 tracking-tight text-white">Clémence</h3>
+          <p class="text-sm leading-6 text-gray-400">Lifestyle</p>
+          <button data-action="click->navbar#changeSection" data-section="contact" class="border-2 border-solid border-white rounded-md hover:border-[#BE8BB0] hover:bg-[#BE8BB0] text-sm px-3 py-2 font-bold text-white mt-6">Contactez-nous</button>
+          <ul role="list" class="mt-6 flex justify-center gap-x-6">
+            <li>
+              <a href="https://www.instagram.com/clem__mset/" target="_blank" class="text-gray-400 hover:text-[#BE8BB0]">
+                <span class="sr-only">Instagram</span>
+                <svg class="w-7 aspect-square" fill="currentColor" viewBox="0 0 448 512">
+                  <path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/>
+                </svg>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div data-glow-target="overlay" class="glow-overlay" style="--glow-color: #BE8BB0"></div>
       </li>
     </ul>
   </div>
