@@ -6,7 +6,6 @@ export default class extends Controller {
 
   switchClient(event) {
     const index = parseInt(event.currentTarget.getAttribute('data-index'), 10)
-    console.log(index)
     this.realisationsTargets.forEach((realisation, i) => {
       if (i === index) {
         realisation.classList.remove('hidden')

@@ -7,82 +7,64 @@ export default class extends Controller {
   connect() {
     this.currentIndex = 0
     this.blockLength = this.titleTarget.querySelectorAll('span').length
+    this.selectButtonTargets[this.currentIndex].dataset.active = true
   }
 
   previousRealisation() {
-    if (this.currentIndex - 1 < 0) {
-      this.currentIndex = this.blockLength - 1
-    } else {
-      this.currentIndex -= 1
-    }
-    this.updateRealisation(this.currentIndex)
+    this.currentIndex - 1 < 0 ? this.currentIndex = this.blockLength - 1 : this.currentIndex -= 1
+    this.updateRealisation()
   }
 
   nextRealisation() {
-    if (this.currentIndex + 1 >= this.blockLength) {
-      this.currentIndex = 0
-    } else {
-      this.currentIndex += 1
-    }
-    this.updateRealisation(this.currentIndex)
+    this.currentIndex + 1 >= this.blockLength ? this.currentIndex = 0 : this.currentIndex += 1
+    this.updateRealisation()
   }
 
   selectRealisation(event) {
-    this.currentIndex = event.currentTarget.getAttribute('data-index')
-    this.updateRealisation(this.currentIndex)
+    const index = this.selectButtonTargets.indexOf(event.currentTarget)
+    this.currentIndex = index
+    this.updateRealisation()
   }
 
-  updateRealisation(index) {
+  updateRealisation() {
     const titles = Array.from(this.titleTarget.querySelectorAll('span'))
     const descriptions = Array.from(this.descriptionTarget.querySelectorAll('span'))
-    const medias = this.mediaTargets
-    const selectButtons = this.selectButtonTargets
-    titles.forEach((title, i) => {
-      if (i == index) {
+    titles.forEach((title, index) => {
+      if (index == this.currentIndex) {
         title.classList.remove('hidden')
       } else {
         title.classList.add('hidden')
       }
     })
-    descriptions.forEach((description, i) => {
-      if (i == index) {
+    descriptions.forEach((description, index) => {
+      if (index == this.currentIndex) {
         description.classList.remove('hidden')
       } else {
         description.classList.add('hidden')
       }
     })
-    medias.forEach((media, i) => {
-      if (i == index) {
+    this.mediaTargets.forEach((media, index) => {
+      if (index == this.currentIndex) {
         media.classList.remove('hidden')
       } else {
         media.classList.add('hidden')
       }
     })
-    selectButtons.forEach((selectButton, i) => {
-      if (i == index) {
-        selectButton.classList.add('bg-gray-900')
-        selectButton.classList.add('text-white')
-        selectButton.classList.add('ring-gray-900')
-        selectButton.classList.remove('text-gray-900')
-        selectButton.classList.remove('hover:bg-gray-100')
-        selectButton.classList.remove('ring-gray-300')
+    this.selectButtonTargets.forEach((selectButton, index) => {
+      if (index == this.currentIndex) {
+        selectButton.dataset.active = true
       } else {
-        selectButton.classList.remove('bg-gray-900')
-        selectButton.classList.remove('text-white')
-        selectButton.classList.remove('ring-gray-900')
-        selectButton.classList.add('text-gray-900')
-        selectButton.classList.add('hover:bg-gray-100')
-        selectButton.classList.add('ring-gray-300')
+        selectButton.dataset.active = false
       }
     })
-    if (this.mediaTargets[index].getAttribute('data-color') === 'black') {
-      this.mediaTargets[index].parentNode.classList.add('bg-black')
-      this.mediaTargets[index].parentNode.classList.remove('bg-white')
+    if (this.mediaTargets[this.currentIndex].dataset.color === 'black') {
+      this.mediaTargets[this.currentIndex].parentNode.classList.add('bg-black')
+      this.mediaTargets[this.currentIndex].parentNode.classList.remove('bg-white')
       this.smartphoneHeaderTargets.find((header) => header.getAttribute('data-color') === 'black').classList.remove('hidden')
       this.smartphoneHeaderTargets.find((header) => header.getAttribute('data-color') === 'white').classList.add('hidden')
     } else {
-      this.mediaTargets[index].parentNode.classList.remove('bg-black')
-      this.mediaTargets[index].parentNode.classList.add('bg-white')
+      this.mediaTargets[this.currentIndex].parentNode.classList.remove('bg-black')
+      this.mediaTargets[this.currentIndex].parentNode.classList.add('bg-white')
       this.smartphoneHeaderTargets.find((header) => header.getAttribute('data-color') === 'black').classList.add('hidden')
       this.smartphoneHeaderTargets.find((header) => header.getAttribute('data-color') === 'white').classList.remove('hidden')
     }
