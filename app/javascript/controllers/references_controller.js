@@ -4,7 +4,7 @@ export default class extends Controller {
   static targets = ["realisations", "client"];
 
   connect() {
-    this.fadeIn(this.realisationsTargets[0]);
+    this.realisationsTargets[0].dataset.selected = "true";
   }
 
   switchClient(event) {
@@ -15,39 +15,15 @@ export default class extends Controller {
         realisation.classList.remove("hidden");
         realisation.classList.add("lg:flex");
         setTimeout(() => {
-          this.fadeIn(realisation);
-        }, 400);
+          realisation.dataset.selected = "true";
+        }, 300);
       } else if (realisation.classList.contains("lg:flex")) {
-        this.fadeOut(realisation);
+        realisation.dataset.selected = "false";
         setTimeout(() => {
           realisation.classList.remove("lg:flex");
           realisation.classList.add("hidden");
-        }, 400);
+        }, 300);
       }
     });
-  }
-
-  fadeIn(element) {
-    let opacity = 0;
-    const fade = () => {
-      opacity += 0.05;
-      element.style.opacity = opacity;
-      if (opacity < 1) {
-        requestAnimationFrame(fade);
-      }
-    };
-    fade();
-  }
-
-  fadeOut(element) {
-    let opacity = 1;
-    const fade = () => {
-      opacity -= 0.05;
-      element.style.opacity = opacity;
-      if (opacity > 0) {
-        requestAnimationFrame(fade);
-      }
-    };
-    fade();
   }
 }
