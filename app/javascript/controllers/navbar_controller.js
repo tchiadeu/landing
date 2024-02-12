@@ -11,7 +11,7 @@ export default class extends Controller {
   changeSection(event) {
     this.navbarTarget.classList.remove("appear-animation")
     const section = event.currentTarget.getAttribute("data-section")
-    if (section === "agency") { this.sectionTarget.classList.remove("appear-animation") }
+    this.sectionTarget.classList.remove("appear-animation")
     const contactButton = this.element.querySelector("button[data-section='contact']")
     const logo = this.element.querySelectorAll("button[data-section='agency']")[0]
     this.sectionTargets.forEach((element) => {
