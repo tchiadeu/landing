@@ -13,6 +13,8 @@
  *= require_tree .
  *= require_self
  */
+@import 'lightgallery';
+
 
 .references-wrapper::-webkit-scrollbar {
   display: none;
