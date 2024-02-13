@@ -589,7 +589,7 @@
       </svg>
     </div>
   </div>
-    <div data-selected="false" data-controller="realisations" data-references-target="realisations" class="hidden mx-auto max-w-7xl px-6 pt-24 pb-24 lg:items-center lg:gap-x-10 lg:px-8 data-[selected=false]:opacity-0 data-[selected=true]:opacity-100 transition duration-500">
+    <div data-selected="false" data-references-target="realisations" class="hidden mx-auto max-w-7xl px-6 pt-24 pb-24 lg:items-center lg:gap-x-10 lg:px-8 data-[selected=false]:opacity-0 data-[selected=true]:opacity-100 transition duration-500">
     <div class="mx-auto max-w-2xl lg:mx-0 lg:flex-auto">
       <h1 class="max-w-lg text-6xl font-bold tracking-tight text-gray-900">
         AEF CHAMPIONSHIP
@@ -615,25 +615,17 @@
           <%= image_tag('references/phone_header_black.jpg', data: {realisations_target: "smartphoneHeader", color: "white"}, class: "sticky top-0 z-10") %>
           <p class="text-xl leading-8 text-white ml-4 font-semibold underline mt-10">GALERIE PHOTOS</p>
           <ul data-controller="lightbox" role="list" class="grid grid-cols-2 gap-x-4 gap-y-4 px-4 mt-10">
-            <a href="<%= image_path("references/aef_1.jpg") %>" class="relative">
-              <div class="group aspect-w-6 aspect-h-10 block w-full overflow-hidden rounded-lg bg-gray-100 border-2 border-solid border-white">
-                <%= image_tag("references/aef_1.jpg", class: "object-cover group-hover:opacity-75") %>
-              </div>
+            <a href="<%= image_path("references/aef_1.jpg") %>" class="group aspect-w-6 aspect-h-10 block w-full overflow-hidden rounded-lg bg-gray-100 border-2 border-solid border-white">
+              <%= image_tag("references/aef_1.jpg", class: "object-cover group-hover:opacity-75") %>
             </a>
-            <a href="<%= image_path("references/aef_2.jpg") %>" class="relative">
-              <div class="group aspect-w-6 aspect-h-10 block w-full overflow-hidden rounded-lg bg-gray-100 border-2 border-solid border-white">
-                <%= image_tag("references/aef_2.jpg", class: "object-cover group-hover:opacity-75") %>
-              </div>
+            <a href="<%= image_path("references/aef_2.jpg") %>" class="group aspect-w-6 aspect-h-10 block w-full overflow-hidden rounded-lg bg-gray-100 border-2 border-solid border-white">
+              <%= image_tag("references/aef_2.jpg", class: "object-cover group-hover:opacity-75") %>
             </a>
-            <a href="<%= image_path("references/aef_3.jpg") %>" class="relative">
-              <div class="group aspect-w-6 aspect-h-10 block w-full overflow-hidden rounded-lg bg-gray-100 border-2 border-solid border-white">
-                <%= image_tag("references/aef_3.jpg", class: "object-cover group-hover:opacity-75") %>
-              </div>
+            <a href="<%= image_path("references/aef_3.jpg") %>" class="group aspect-w-6 aspect-h-10 block w-full overflow-hidden rounded-lg bg-gray-100 border-2 border-solid border-white">
+              <%= image_tag("references/aef_3.jpg", class: "object-cover group-hover:opacity-75") %>
             </a>
-            <a href="<%= image_path("references/aef_4.jpg") %>" class="relative">
-              <div class="group aspect-w-6 aspect-h-10 block w-full overflow-hidden rounded-lg bg-gray-100 border-2 border-solid border-white">
-                <%= image_tag("references/aef_4.jpg", class: "object-cover group-hover:opacity-75") %>
-              </div>
+            <a href="<%= image_path("references/aef_4.jpg") %>" class="group aspect-w-6 aspect-h-10 block w-full overflow-hidden rounded-lg bg-gray-100 border-2 border-solid border-white">
+              <%= image_tag("references/aef_4.jpg", class: "object-cover group-hover:opacity-75") %>
             </a>
           </ul>
         </foreignObject>
