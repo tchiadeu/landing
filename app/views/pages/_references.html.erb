@@ -1,4 +1,4 @@
-<div data-controller="references" data-navbar-target="section" data-section="references" class="relative isolate hidden relative isolate pt-24 mx-auto">
+<div data-controller="references" data-navbar-target="section" data-section="references" class="hidden relative isolate pt-24 mx-auto">
   <div class="mx-auto max-w-7xl px-6 lg:px-8">
     <div class="mx-auto grid max-w-lg grid-cols-4 items-center gap-x-8 gap-y-12 sm:max-w-xl sm:flex sm:gap-x-10 sm:gap-y-14 lg:mx-0 lg:max-w-none overflow-x-scroll">
       <%= image_tag("references/dominos_color.png", data: {action: "click->references#switchClient", references_target:"client"}, class: "cursor-pointer col-span-2 max-h-12 w-full object-contain lg:col-span-1", alt: "Dominos", width: "158", alt: "48") %>
@@ -46,52 +46,51 @@
           </svg>
         </button>
       </nav>
-      <div class="block h-48">
-
-      <h2 data-realisations-target="title" class="mt-10 text-3xl underline">
-        <span>Production audiovisuelle : LA CHASSE AUX TRÉSORS</span>
-        <span class="hidden">Production audiovisuelle : BIG ONE</span>
-        <span class="hidden">Production audiovisuelle : MICRO TROTTOIR</span>
-        <span class="hidden">Social Media : Instagram / TikTok</span>
-      </h2>
-      <div data-realisations-target="description" class="mt-6 text-xl leading-8 text-gray-600">
-        <span>Production et réalisation de vidéos type "capsules" et "reportage" pour la Chasse aux trésors. Les participants devaient trouver des items dans toute la ville de Rennes, afin de gagner 1 an de pizza chez Domino’s. Cet événement a été organisé dans le cadre des 25 ans de la marque à Rennes.</span>
-        <span class="hidden">Production et réalisation de l’émission BIG ONE (la plus grande pizza chez Domino’s) sous forme d’un quizz. Présenté par notre créateur de contenu CHP, avec des invités issus de l’influence et de la communication digitale à Rennes.</span>
-        <span class="hidden">
-          <p>Production et réalisation de micro-trottoirs avec notre créateur de contenu CHP. Une bonne réponse aux questions = une pizza offerte.</p>
-          <div class="mt-10 flex gap-x-5">
-            <div class="inline-flex items-center gap-x-2 rounded-md bg-gray-50 px-2 py-1 text-lg text-gray-600 ring-1 ring-inset ring-gray-500/10">
-              <div class="relative h-5 w-5 rounded-sm">
-                <svg class="h-5 w-5 stroke-gray-600/50" fill="currentColor" viewBox="0 0 448 512">
-                  <path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/>
-                </svg>
+      <div class="sm:block sm:h-48">
+        <h2 data-realisations-target="title" class="mt-10 text-3xl underline">
+          <span>Production audiovisuelle : LA CHASSE AUX TRÉSORS</span>
+          <span class="hidden">Production audiovisuelle : BIG ONE</span>
+          <span class="hidden">Production audiovisuelle : MICRO TROTTOIR</span>
+          <span class="hidden">Social Media : Instagram / TikTok</span>
+        </h2>
+        <div data-realisations-target="description" class="mt-6 text-xl leading-8 text-gray-600">
+          <span>Production et réalisation de vidéos type "capsules" et "reportage" pour la Chasse aux trésors. Les participants devaient trouver des items dans toute la ville de Rennes, afin de gagner 1 an de pizza chez Domino’s. Cet événement a été organisé dans le cadre des 25 ans de la marque à Rennes.</span>
+          <span class="hidden">Production et réalisation de l’émission BIG ONE (la plus grande pizza chez Domino’s) sous forme d’un quizz. Présenté par notre créateur de contenu CHP, avec des invités issus de l’influence et de la communication digitale à Rennes.</span>
+          <span class="hidden">
+            <p>Production et réalisation de micro-trottoirs avec notre créateur de contenu CHP. Une bonne réponse aux questions = une pizza offerte.</p>
+            <div class="mt-10 flex gap-x-5">
+              <div class="inline-flex items-center gap-x-2 rounded-md bg-gray-50 px-2 py-1 text-lg text-gray-600 ring-1 ring-inset ring-gray-500/10">
+                <div class="relative h-5 w-5 rounded-sm">
+                  <svg class="h-5 w-5 stroke-gray-600/50" fill="currentColor" viewBox="0 0 448 512">
+                    <path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/>
+                  </svg>
+                </div>
+                Instagram
               </div>
-              Instagram
-            </div>
-            <div class="inline-flex items-center gap-x-2 rounded-md bg-gray-50 px-2 py-1 text-lg text-gray-600 ring-1 ring-inset ring-gray-500/10">
-              <div class="relative h-5 w-5 rounded-sm">
-                <svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-5 w-5">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 12a4.5 4.5 0 1 1-9 0 4.5 4.5 0 0 1 9 0Zm0 0c0 1.657 1.007 3 2.25 3S21 13.657 21 12a9 9 0 1 0-2.636 6.364M16.5 12V8.25" />
-                </svg>
+              <div class="inline-flex items-center gap-x-2 rounded-md bg-gray-50 px-2 py-1 text-lg text-gray-600 ring-1 ring-inset ring-gray-500/10">
+                <div class="relative h-5 w-5 rounded-sm">
+                  <svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-5 w-5">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 12a4.5 4.5 0 1 1-9 0 4.5 4.5 0 0 1 9 0Zm0 0c0 1.657 1.007 3 2.25 3S21 13.657 21 12a9 9 0 1 0-2.636 6.364M16.5 12V8.25" />
+                  </svg>
+                </div>
+                Social Media
               </div>
-              Social Media
-            </div>
-            <div class="inline-flex items-center gap-x-2 rounded-md bg-gray-50 px-2 py-1 text-lg text-gray-600 ring-1 ring-inset ring-gray-500/10">
-              <div class="relative h-5 w-5 rounded-sm">
-                <svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="m15.75 10.5 4.72-4.72a.75.75 0 0 1 1.28.53v11.38a.75.75 0 0 1-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 0 0 2.25-2.25v-9a2.25 2.25 0 0 0-2.25-2.25h-9A2.25 2.25 0 0 0 2.25 7.5v9a2.25 2.25 0 0 0 2.25 2.25Z" />
-                </svg>
+              <div class="inline-flex items-center gap-x-2 rounded-md bg-gray-50 px-2 py-1 text-lg text-gray-600 ring-1 ring-inset ring-gray-500/10">
+                <div class="relative h-5 w-5 rounded-sm">
+                  <svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="m15.75 10.5 4.72-4.72a.75.75 0 0 1 1.28.53v11.38a.75.75 0 0 1-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 0 0 2.25-2.25v-9a2.25 2.25 0 0 0-2.25-2.25h-9A2.25 2.25 0 0 0 2.25 7.5v9a2.25 2.25 0 0 0 2.25 2.25Z" />
+                  </svg>
+                </div>
+                Audiovisuel
               </div>
-              Audiovisuel
             </div>
-          </div>
-        </span>
-        <span class="hidden">
-          - Présentation des (nouveaux) produits / Présentation des équipes / Présentation de l’enseigne
-          <br>- Création de contenus vidéos
-          <br>- Réalisation de campagnes d’influence, afin de promouvoir les nouveaux produits de la marque
-        </span>
-      </div>
+          </span>
+          <span class="hidden">
+            - Présentation des (nouveaux) produits / Présentation des équipes / Présentation de l’enseigne
+            <br>- Création de contenus vidéos
+            <br>- Réalisation de campagnes d’influence, afin de promouvoir les nouveaux produits de la marque
+          </span>
+        </div>
       </div>
     </div>
     <div class="mt-16 lg:mt-0 lg:flex-shrink-0 lg:flex-grow">
@@ -161,7 +160,7 @@
         <span class="hidden">Social Media : Instagram</span>
         <span class="hidden">Scénographie : Illustration</span>
       </h2>
-      <div data-realisations-target="description" class="block h-32 mt-6 text-xl leading-8 text-gray-600">
+      <div data-realisations-target="description" class="sm:block sm:h-32 mt-6 text-xl leading-8 text-gray-600">
         <span>
           Production et réalisation du format court "Fast & Tacozh" à destination des employés de la marque.
           <br>Répondre le plus rapidement à un nombre de questions sur les produits de l’entreprise
@@ -277,14 +276,14 @@
           </svg>
         </button>
       </nav>
-      <h2 data-realisations-target="title" class="mt-10 block h-16 text-3xl underline">
+      <h2 data-realisations-target="title" class="mt-10 sm:block sm:h-16 text-3xl underline">
         <span>Production audiovisuelle : Les Journées européennes du patrimoine</span>
         <span class="hidden">Production audiovisuelle : 24H DANS LA PEAU D'UNE FEMME AU TEMPS DU ROI SOLEIL !</span>
         <span class="hidden">Social Media / Influence</span>
         <span class="hidden">Production audiovisuelle : BOSCHET FESTIVAL</span>
         <span class="hidden">Design graphique</span>
       </h2>
-      <div data-realisations-target="description" class="block h-40 mt-6 text-xl leading-8 text-gray-600">
+      <div data-realisations-target="description" class="sm:block sm:h-40 mt-6 text-xl leading-8 text-gray-600">
         <span>Production et réalisation d’une vidéo type reportage, qui résume les deux jours des journées européennes du patrimoine au Château du Boschet</span>
         <span class="hidden">
           Coordination avec l’équipe de production de la youtubeuse Dooms au Château du Boschet.
@@ -388,7 +387,7 @@
         <span class="hidden">Production audiovisuelle</span>
         <span class="hidden">Influence</span>
       </h2>
-      <div data-realisations-target="description" class="block h-40 mt-6 text-xl leading-8 text-gray-600">
+      <div data-realisations-target="description" class="sm:block sm:h-40 mt-6 text-xl leading-8 text-gray-600">
         <span>
           - Création de visuels afin de promouvoir les événements culturels de l’entreprise
           <br>- Prises de vues type reportage afin de valoriser les événements culturels de l’entreprise
@@ -518,7 +517,7 @@
         <span class="hidden">Production audiovisuelle</span>
         <span class="hidden">Design graphique</span>
       </h2>
-      <div data-realisations-target="description" class="block h-40 mt-6 text-xl leading-8 text-gray-600">
+      <div data-realisations-target="description" class="sm:block sm:h-40 mt-6 text-xl leading-8 text-gray-600">
         <span>
           - Prises de vues type packshot des services proposées par l’entreprise
           <br>- Prise de vues type personal branding qui valorise les rôles du personnel de l’entreprise
