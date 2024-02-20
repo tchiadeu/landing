@@ -5,6 +5,6 @@ class ContactMailer < ApplicationMailer
     @phone = phone
     @email = email
     @message = message
-    mail(to: 'oneleadz@gmail.com', subject: "Contact - #{first_name.capitalize} #{last_name.upcase}")
+    mail(to: ENV['GMAIL_ADDRESS'], subject: "Contact - #{first_name.capitalize} #{last_name.upcase}")
   end
 end
