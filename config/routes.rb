@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :sections, only: %i[index edit update]
-    resources :talents
+    resources :talents, only: %i[index new create edit update destroy]
     resources :references do
       resources :tasks
     end
