@@ -18,11 +18,8 @@
             <div class="aspect-[1155/678] w-[72.1875rem] bg-gradient-to-br from-[#80caff] to-[#4f46e5] opacity-20" style="clip-path: polygon(74.1% 56.1%, 100% 38.6%, 97.5% 73.3%, 85.5% 100%, 80.7% 98.2%, 72.5% 67.7%, 60.2% 37.8%, 52.4% 32.2%, 47.5% 41.9%, 45.2% 65.8%, 27.5% 23.5%, 0.1% 35.4%, 17.9% 0.1%, 27.6% 23.5%, 76.1% 2.6%, 74.1% 56.1%)"></div>
           </div>
         </div>
-        <h2 class="text-3xl font-bold tracking-tight text-white">🚀 Bienvenue chez LEADZ - Votre Partenaire en Communication et en Evènementiel 🚀</h2>
-        <p class="mt-6 text-lg leading-8 text-gray-300">
-          Chez LEADZ, nous sommes passionnés par la création d'évènements et de solutions de communication innovantes.
-          <br>Avec une expertise approfondie et une approche personnalisée, nous transformons vos idées en une présence percutante et mémorable.
-        </p>
+        <h2 class="text-3xl font-bold tracking-tight text-white"><%= Section.find_by(category: "contact").subtitle %></h2>
+        <p class="mt-6 text-lg leading-8 text-gray-300"><%= Section.find_by(category: "contact").description %></p>
         <dl class="mt-10 space-y-4 text-base leading-7 text-gray-300">
           <div data-controller="clipboard" data-clipboard-success-content-value="Copié" class="flex items-center gap-x-4 group">
             <dt class="flex-none">
@@ -32,7 +29,7 @@
               </svg>
             </dt>
             <dd>
-              <div class="group-hover:text-white" data-clipboard-target="source">0607234454</div>
+              <div class="group-hover:text-white" data-clipboard-target="source"><%= User.first.phone_number %></div>
             </dd>
             <button data-action="clipboard#copy" data-clipboard-target="button" class="group-hover:text-white">
               <svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-5 w-5">
@@ -48,7 +45,7 @@
               </svg>
             </dt>
             <dd>
-              <div class="group-hover:text-white" data-clipboard-target="source">oneleadz@gmail.com</div>
+              <div class="group-hover:text-white" data-clipboard-target="source"><%= User.first.email %></div>
             </dd>
             <button data-action="clipboard#copy" data-clipboard-target="button" class="group-hover:text-white">
               <svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-5 w-5">

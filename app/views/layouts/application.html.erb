@@ -12,9 +12,23 @@
   </head>
 
   <body data-controller="loading navbar">
-    <%= render 'pages/navbar' %>
-    <div data-loading-target="container" class="displayed relative w-screen h-screen">
-      <%= yield %>
-    </div>
+    <%= render "shared/flashes" %>
+    <% if controller_path.starts_with?("admin/") || current_page?(edit_user_registration_path) || current_page?(new_user_session_path) %>
+      <div>
+        <%= render "shared/sidebar" %>
+        <div class="lg:pl-72">
+          <main class="py-10">
+            <div class="px-4 sm:px-6 lg:px-8">
+              <%= yield %>
+            </div>
+          </main>
+        </div>
+      </div>
+    <% else %>
+      <%= render "shared/navbar" %>
+      <div data-loading-target="container" class="displayed relative w-screen h-screen">
+        <%= yield %>
+      </div>
+    <% end %>
   </body>
 </html>
