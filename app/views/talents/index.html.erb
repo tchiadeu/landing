@@ -1,0 +1,52 @@
+<div class="relative isolate bg-gray-900 py-24 sm:py-32 w-full">
+  <svg class="-z-10 absolute inset-0 h-full w-full stroke-gray-700 [mask-image:radial-gradient(100%_100%_at_top_right,white,transparent)]" aria-hidden="true">
+    <defs>
+      <pattern id="54f88622-e7f8-4f1d-aaf9-c2f5e46dd1f2" width="200" height="200" x="100%" y="-1" patternUnits="userSpaceOnUse">
+        <path d="M130 200V.5M.5 .5H200" fill="none" />
+      </pattern>
+    </defs>
+    <svg x="100%" y="-1" class="overflow-visible fill-gray-800/20">
+      <path d="M-470.5 0h201v201h-201Z" stroke-width="0" />
+    </svg>
+    <rect width="100%" height="100%" stroke-width="0" fill="url(#54f88622-e7f8-4f1d-aaf9-c2f5e46dd1f2)" />
+  </svg>
+  <div class="absolute transform-gpu blur-3xl" aria-hidden="true">
+    <div class="aspect-[1155/678] w-full bg-gradient-to-br from-[#80caff] to-[#4f46e5] opacity-20" style="clip-path: polygon(74.1% 56.1%, 100% 38.6%, 97.5% 73.3%, 85.5% 100%, 80.7% 98.2%, 72.5% 67.7%, 60.2% 37.8%, 52.4% 32.2%, 47.5% 41.9%, 45.2% 65.8%, 27.5% 23.5%, 0.1% 35.4%, 17.9% 0.1%, 27.6% 23.5%, 76.1% 2.6%, 74.1% 56.1%)"></div>
+  </div>
+  <div class="mx-auto max-w-7xl px-6 text-center lg:px-8">
+    <div class="mx-auto max-w-2xl">
+      <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">
+        <%= @section.subtitle.nil? ? @section.title.capitalize : @section.subtitle.capitalize %>
+      </h2>
+      <p class="mt-4 text-lg leading-8 text-gray-400">
+        <%= @section.description %>
+      </p>
+    </div>
+    <ul class="mx-auto mt-20 max-w-2xl gap-6 <%= "flex flex-col sm:flex-row justify-around sm:max-w-none items-center" if @talents.count < 3 %> <%= "grid grid-cols-1 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-3 lg:gap-8" if @talents.count > 2 %>">
+      <% @talents.each_with_index do |talent, index| %>
+        <li data-controller="glow" class="relative glow-capture <%= "lg:w-1/3" if @talents.count < 3 %>">
+          <div data-glow-target="child" class="glow glow:ring-1 glow:border-glow glow:ring-glow glow:bg-glow/[.15] rounded-2xl bg-gray-800 px-8 py-10 border-2 border-solid border-gray-700">
+            <%= cl_image_tag talent.photo.key, class: "mx-auto h-48 w-48 rounded-full md:h-56 md:w-56" %>
+            <h3 class="mt-6 text-base font-semibold leading-7 tracking-tight text-white"><%= talent.name %></h3>
+            <p class="text-sm leading-6 text-gray-400 mb-6"><%= talent.job %></p>
+            <%= link_to "Contactez nous", contact_section_path, class: "border-2 border-solid border-white rounded-md hover:border-[#{talent.color}] hover:bg-[#{talent.color}] text-sm px-3 py-2 font-bold text-white" %>
+            <ul role="list" class="mt-6 flex justify-center gap-x-6">
+              <% talent.socials.each do |social| %>
+                <li>
+                  <%= link_to social.url, target: "_blank" do %>
+                    <span class="sr-only"><%= social.name %></span>
+                    <%= image_tag("icons/#{social.name.downcase}.svg", class: "w-6 aspect-square hover:rotate-360 transition duration-500") %>
+                  <% end %>
+                </li>
+              <% end %>
+            </ul>
+          </div>
+          <div data-glow-target="overlay" class="glow-overlay" style="--glow-color: <%= talent.color %>"></div>
+        </li>
+        <% if index == 0 && @talents.count == 2 %>
+          <li class="hidden sm:block"><div class="h-80 w-1.5 rounded-md bg-gray-700"></div></li>
+        <% end %>
+      <% end %>
+    </ul>
+  </div>
+</div>

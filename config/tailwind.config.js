@@ -13,6 +13,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      rotate: {
+        '360': '360deg',
+      },
       fontFamily: {
         sans: ['Inter var', ...defaultTheme.fontFamily.sans],
       },

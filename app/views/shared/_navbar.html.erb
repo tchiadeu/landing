@@ -1,20 +1,36 @@
-<nav data-navbar-target="navbar" class="appear-animation fixed w-full backdrop-blur-md border-b-2 border-solid border-white z-10">
+<nav class="fixed w-full backdrop-blur-md z-10">
   <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
     <div class="relative flex h-16 items-center justify-between">
       <div class="flex flex-1 items-center justify-between">
-        <button data-action="click->navbar#changeSection" data-section="agency" class="flex flex-col justify-between gap-2 w-[35px] scale-75">
-          <div class="w-full rounded-sm h-[8px] bg-black"></div>
-          <div class="w-[90%] rounded-sm h-[8px] bg-black"></div>
-          <div class="w-full rounded-sm h-[8px] bg-black"></div>
-        </button>
+        <%= link_to agency_path, class: "w-28" do %>
+          <div class="w-[35px] scale-90 flex flex-col justify-between gap-2">
+            <div class="w-full rounded-sm h-[8px] <%= (current_page?(agency_path) || current_page?(references_path)) ? "bg-black" : "bg-white" %>"></div>
+            <div class="w-[90%] rounded-sm h-[8px] <%= (current_page?(agency_path) || current_page?(references_path)) ? "bg-black" : "bg-white" %>"></div>
+            <div class="w-full rounded-sm h-[8px] <%= (current_page?(agency_path) || current_page?(references_path)) ? "bg-black" : "bg-white" %>"></div>
+          </div>
+        <% end %>
         <div class="hidden sm:ml-6 sm:block">
-          <div class="flex space-x-4">
-            <button data-action="click->navbar#changeSection" data-navbar-target="button" data-section="agency" class="border-2 border-solid border-gray-900 text-gray-900 rounded-md hover:bg-gray-700 hover:border-gray-700 hover:text-white px-3 py-2 text-sm font-medium" aria-current="page">Agence</button>
-            <button data-action="click->navbar#changeSection" data-navbar-target="button" data-section="talent" class="border-solid border-gray-900 text-gray-800 rounded-md hover:bg-gray-700 hover:border-gray-700 hover:text-white px-3 py-2 text-sm font-medium">Talents</button>
-            <button data-action="click->navbar#changeSection" data-navbar-target="button" data-section="references" class="border-solid border-gray-900 text-gray-800 rounded-md hover:bg-gray-700 hover:border-gray-700 hover:text-white px-3 py-2 text-sm font-medium">Références</button>
+          <div class="grid grid-cols-3 gap-4 p-1 border-2 rounded-3xl <%= (current_page?(agency_path) || current_page?(references_path)) ? "border-gray-800 bg-gray-900" : "border-gray-200 bg-gray-100" %>">
+            <% if current_page?(agency_path) %>
+              <%= link_to "Agence", agency_path, class: "flex justify-center rounded-3xl px-3 py-2 text-sm font-semibold text-gray-200 bg-gray-700" %>
+              <%= link_to "Talents", talents_path, class: "flex justify-center rounded-3xl px-3 py-2 text-sm font-medium text-gray-400" %>
+              <%= link_to "Références", references_path, class: "flex justify-center rounded-3xl px-3 py-2 text-sm font-medium text-gray-400" %>
+            <% elsif current_page?(talents_path) %>
+              <%= link_to "Agence", agency_path, class: "flex justify-center rounded-3xl px-3 py-2 text-sm font-medium text-gray-500" %>
+              <%= link_to "Talents", talents_path, class: "flex justify-center rounded-3xl px-3 py-2 text-sm font-semibold text-gray-900 bg-gray-300" %>
+              <%= link_to "Références", references_path, class: "flex justify-center rounded-3xl px-3 py-2 text-sm font-medium text-gray-500" %>
+            <% elsif current_page?(references_path) %>
+              <%= link_to "Agence", agency_path, class: "flex justify-center rounded-3xl px-3 py-2 text-sm font-medium text-gray-400" %>
+              <%= link_to "Talents", talents_path, class: "flex justify-center rounded-3xl px-3 py-2 text-sm font-medium text-gray-400" %>
+              <%= link_to "Références", references_path, class: "flex justify-center rounded-3xl px-3 py-2 text-sm font-semibold text-gray-200 bg-gray-700" %>
+            <% else %>
+              <%= link_to "Agence", agency_path, class: "flex justify-center rounded-3xl px-3 py-2 text-sm font-medium text-gray-500" %>
+              <%= link_to "Talents", talents_path, class: "flex justify-center rounded-3xl px-3 py-2 text-sm font-medium text-gray-500" %>
+              <%= link_to "Références", references_path, class: "flex justify-center rounded-3xl px-3 py-2 text-sm font-medium text-gray-500" %>
+            <% end %>
           </div>
         </div>
-        <button data-action="click->navbar#changeSection" data-section="contact" class="border-2 border-solid border-black bg-black text-white hover:bg-gray-700 hover:border-gray-700 rounded-md px-3 py-2 text-sm font-bold">Contact</button>
+        <%= link_to "Contact", contact_section_path, class: "#{(current_page?(agency_path) || current_page?(references_path)) ? "bg-black text-white border-black hover:bg-gray-700 hover:border-gray-700" : "bg-white text-black border-white hover:bg-gray-200 hover:border-gray-200"} border-2 border-solid rounded-md px-3 py-2 text-sm font-bold w-28 flex justify-center" %>
       </div>
     </div>
   </div>

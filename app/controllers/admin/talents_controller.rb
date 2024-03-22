@@ -7,7 +7,6 @@ class Admin::TalentsController < BaseController
 
   def new
     @talent = Talent.new
-    @talent.socials.build
   end
 
   def create
@@ -21,9 +20,7 @@ class Admin::TalentsController < BaseController
     end
   end
 
-  def edit
-    @talent.socials.build
-  end
+  def edit; end
 
   def update
     if @talent.update(talent_params)

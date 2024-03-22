@@ -14,14 +14,10 @@ Rails.application.routes.draw do
       resources :tasks
     end
   end
-
   resources :talents, only: :index
   resources :references, only: :index
-
-  resources :sections, only: :show do
-    get :agency, to: 'sections#agency'
-    get :contact, to: 'sections#contact'
-  end
+  get 'agency', to: 'sections#agency'
+  get 'contact', to: 'sections#contact', as: 'contact_section'
 
   mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?
 end
