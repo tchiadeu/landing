@@ -1,0 +1,36 @@
+<div class="mx-auto max-w-2xl text-center">
+  <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl"><%= current_page?(new_admin_talent_path) ? "Ajout d'un nouveau talent" : "Modification de #{@talent.name}" %></h2>
+</div>
+<%= form_with(model: @talent, url: current_page?(new_admin_talent_path) ? "/admin/talents" : admin_talent_path(@talent), class: "mx-auto mt-10 max-w-xl flex flex-col gap-5") do |form| %>
+  <div>
+    <%= form.label :name, "Nom", class: "block text-sm font-semibold leading-6 text-gray-900" %>
+    <div class="mt-2.5">
+      <%= form.text_field :name, class: "block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" %>
+    </div>
+  </div>
+  <div>
+    <%= form.label :job, "Métier", class: "block text-sm font-semibold leading-6 text-gray-900" %>
+    <div class="mt-2.5">
+      <%= form.text_field :job, class: "block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" %>
+    </div>
+  </div>
+  <div data-controller="preview-photo">
+    <%= form.label :photo, "Photo", class: "block text-sm font-semibold leading-6 text-gray-900" %>
+    <div class="mt-2.5">
+      <%= form.file_field :photo, as: :file, data: {action: "change->preview-photo#preview"}, class: "block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" %>
+    </div>
+    <div class="mt-2.5 flex gap-5">
+      <% if @talent.photo.attached? %>
+        <div class="flex flex-col justify-center items-center gap-2">
+          <p class="text-sm font-semibold text-gray-900">Photo actuelle</p>
+          <%= cl_image_tag @talent.photo.key, class: "mx-auto h-48 w-48 rounded-full" %>
+        </div>
+      <% end %>
+      <div class="hidden flex-col justify-center items-center gap-2">
+        <p class="text-sm font-semibold text-gray-900">Preview photo en cours d'enregistrement</p>
+        <img data-preview-photo-target="image" src="#" class="mx-auto h-48 w-48 rounded-full">
+      </div>
+    </div>
+  </div>
+  <%= form.submit "Valider", class: "block w-full rounded-md bg-indigo-600 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 mt-10" %>
+<% end %>
