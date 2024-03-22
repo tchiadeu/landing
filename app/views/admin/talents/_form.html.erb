@@ -1,7 +1,7 @@
 <div class="mx-auto max-w-2xl text-center">
-  <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl"><%= current_page?(new_admin_talent_path) ? "Ajout d'un nouveau talent" : "Modification de #{@talent.name}" %></h2>
+  <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl"><%= title %></h2>
 </div>
-<%= form_with(model: @talent, url: current_page?(new_admin_talent_path) ? "/admin/talents" : admin_talent_path(@talent), class: "mx-auto mt-10 max-w-xl flex flex-col gap-5") do |form| %>
+<%= form_with(model: @talent, url: url, class: "mx-auto mt-10 max-w-xl flex flex-col gap-5") do |form| %>
   <div>
     <%= form.label :name, "Nom", class: "block text-sm font-semibold leading-6 text-gray-900" %>
     <div class="mt-2.5">
@@ -44,6 +44,33 @@
       <%= form.text_field :color, data: { color_picker_target: "input" }, class: "block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" %>
     </div>
   </div>
-
-  <%= form.submit "Valider", class: "block w-full rounded-md bg-indigo-600 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 mt-10" %>
+  <p class="block text-sm font-semibold leading-6 text-gray-900">Réseaux sociaux</p>
+  <% Social::CATEGORIES.each do |name| %>
+    <%= form.fields_for :socials, Social.find_by(name:, talent: @talent) || Social.new do |social_form| %>
+      <div class="flex justify-between items-center gap-5">
+        <% if @talent.socials.map(&:name).include?(name) %>
+          <div class="flex gap-2 w-40 items-center">
+            <%= social_form.check_box :_destroy, {class: "h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600", checked: true}, "", 1 %>
+            <%= social_form.label name, class: "block text-sm font-semibold leading-6 text-gray-500" %>
+          </div>
+          <%= social_form.text_field :url, placeholder: "Copier l'URL", class: "block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" %>
+        <% else %>
+          <div class="flex gap-2 w-40 items-center">
+            <%= social_form.check_box :name, {class: "h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"}, name, "" %>
+            <%= social_form.label name, class: "block text-sm font-semibold leading-6 text-gray-500" %>
+          </div>
+          <%= social_form.text_field :url, placeholder: "Copier l'URL", class: "block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" %>
+        <% end %>
+      </div>
+    <% end %>
+  <% end %>
+  <button type="submit" class="group flex justify-center w-full rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 mt-10">
+    <span class="group-disabled:hidden">Valider</span>
+    <span class="hidden group-disabled:block">
+      <svg class="animate-spin h-5 w-5" viewBox="0 0 24 24">
+        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+      </svg>
+    </span>
+  </button>
 <% end %>

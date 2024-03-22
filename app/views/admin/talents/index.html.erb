@@ -8,20 +8,18 @@
       <% if talent.photo.attached? %>
         <%= cl_image_tag talent.photo.key, class: "mx-auto h-48 w-48 rounded-full md:h-56 md:w-56" %>
       <% end %>
-      <%#= image_tag("talents/Clémence.jpg", class: "mx-auto h-48 w-48 rounded-full md:h-56 md:w-56") %>
       <h3 class="mt-3 text-base font-semibold leading-7 tracking-tight text-gray-900"><%= talent.name %></h3>
       <p class="text-sm leading-6 text-gray-700"><%= talent.job %></p>
-      <%# <ul role="list" class="mt-6 flex justify-center gap-x-6">
-        <li>
-          <a href="https://www.instagram.com/clem__mset/" target="_blank" class="text-gray-400 hover:text-[#BE8BB0]">
-            <span class="sr-only">Instagram</span>
-            <svg class="w-7 aspect-square" fill="currentColor" viewBox="0 0 448 512">
-              <path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/>
-            </svg>
-          </a>
-        </li>
-      </ul> %>
-      <div class="grid grid-cols-2 gap-5 mt-3">
+      <ul role="list" class="my-4 flex justify-center gap-x-6">
+        <% talent.socials.each do |social| %>
+          <li>
+            <%= link_to social.url, target: "_blank", class: "text-gray-600" do %>
+              <%= image_tag("icons/#{social.name.downcase}.svg", class: "w-6 aspect-square") %>
+            <% end %>
+          </li>
+        <% end %>
+      </ul>
+      <div class="grid grid-cols-2 gap-5">
         <%= link_to "Modifier", edit_admin_talent_path(talent), class: "block rounded-md border-indigo-600 border-2 border-solid px-3.5 py-2.5 text-center text-sm font-semibold text-indigo-600 hover:text-white shadow-sm hover:bg-indigo-600" %>
         <%= link_to "Supprimer", "/admin/talents/#{talent.id}", data: { turbo_method: :delete, turbo_confirm: "Êtes vous sûr ?" }, class: "block rounded-md border-black border-2 border-solid px-3.5 py-2.5 text-center text-sm font-semibold text-black hover:text-white shadow-sm hover:bg-black" %>
       </div>

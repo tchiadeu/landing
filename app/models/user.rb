@@ -5,4 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   validates :email, comparison: { equal_to: "test@test.com" }
+  has_many :socials, dependent: :destroy
+
+  accepts_nested_attributes_for :socials, allow_destroy: true, reject_if: :all_blank
 end

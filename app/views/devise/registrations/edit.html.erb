@@ -1,43 +1,47 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
-
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+<div class="mx-auto max-w-2xl text-center">
+  <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Modification des informations générales</h2>
+</div>
+<%= form_with(model: resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, class: "mx-auto mt-10 max-w-xl flex flex-col gap-5" } ) do |form| %>
   <%= render "devise/shared/error_messages", resource: resource %>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  <div>
+    <%= form.label :email, "Email", autofocus: true, class: "block text-sm font-semibold leading-6 text-gray-900" %>
+    <%= form.email_field :email, class: "mt-2.5 block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" %>
   </div>
-
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-    <% if @minimum_password_length %>
-      <br />
-      <em><%= @minimum_password_length %> characters minimum</em>
+  <div>
+    <%= form.label :password, "Mot de passe (Laisser vide si vous n'avez pas besoin de changer)", class: "block text-sm font-semibold leading-6 text-gray-900" %>
+    <%= form.password_field :password, class: "mt-2.5 block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" %>
+  </div>
+  <div>
+    <%= form.label :password_confirmation, "Confirmation du mot de passe", class: "block text-sm font-semibold leading-6 text-gray-900" %>
+    <%= form.password_field :password_confirmation, class: "mt-2.5 block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" %>
+  </div>
+  <div>
+    <%= form.label :current_password, "Mot de passe actuel (Obligatoire pour tout changement des informations)", class: "block text-sm font-semibold leading-6 text-gray-900" %>
+    <%= form.password_field :current_password, class: "mt-2.5 block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" %>
+  </div>
+  <div>
+    <%= form.label :phone_number, "Numéro de téléphone", class: "block text-sm font-semibold leading-6 text-gray-900" %>
+    <%= form.text_field :phone_number, class: "mt-2.5 block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" %>
+  </div>
+  <p class="block text-sm font-semibold leading-6 text-gray-900">Réseaux sociaux</p>
+  <% Social::CATEGORIES.each do |name| %>
+    <%= form.fields_for :socials, Social.find_by(name:, user: resource) || Social.new do |social_form| %>
+      <div class="flex justify-between items-center gap-5">
+        <% if resource.socials.map(&:name).include?(name) %>
+          <div class="flex gap-2 w-40 items-center">
+            <%= social_form.check_box :_destroy, {class: "h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600", checked: true}, "", 1 %>
+            <%= social_form.label name, class: "block text-sm font-semibold leading-6 text-gray-500" %>
+          </div>
+          <%= social_form.text_field :url, placeholder: "Copier l'URL", class: "block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" %>
+        <% else %>
+          <div class="flex gap-2 w-40 items-center">
+            <%= social_form.check_box :name, {class: "h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"}, name, "" %>
+            <%= social_form.label name, class: "block text-sm font-semibold leading-6 text-gray-500" %>
+          </div>
+          <%= social_form.text_field :url, placeholder: "Copier l'URL", class: "block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" %>
+        <% end %>
+      </div>
     <% end %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "current-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Update" %>
-  </div>
+  <% end %>
+  <%= form.submit "Confirmer les changements", class: "block w-full rounded-md bg-indigo-600 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 mt-10" %>
 <% end %>
-
-<h3>Cancel my account</h3>
-
-<div>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete %></div>
-
-<%= link_to "Back", :back %>
