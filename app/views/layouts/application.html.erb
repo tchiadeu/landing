@@ -26,9 +26,7 @@
       </div>
     <% else %>
       <%= render "shared/navbar" %>
-      <div data-loading-target="container" class="displayed relative w-screen h-screen">
-        <%= yield %>
-      </div>
+      <%= yield %>
     <% end %>
   </body>
 </html>

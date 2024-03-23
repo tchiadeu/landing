@@ -33,8 +33,7 @@
   align-items: center;
   justify-content: center;
   animation: change-background 1250ms ease-in-out 4000ms,
-             load-finish 750ms ease-in-out forwards 5500ms,
-             undisplayed 100ms ease-in-out forwards 6250ms;
+             load-finish 750ms ease-in-out forwards 5500ms;
 }
 
 .leadz-rotation {
@@ -715,13 +714,5 @@
     opacity: 1;
   } 100% {
     opacity: 0;
-  }
-}
-
-@keyframes undisplayed {
-  0% {
-    display: block;
-  } 100% {
-    display: none;
   }
 }
