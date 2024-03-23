@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  category: MyString
+  html_tag: MyString
+  task: one
+
+two:
+  category: MyString
+  html_tag: MyString
+  task: two

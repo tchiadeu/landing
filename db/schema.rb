@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_03_22_195802) do
+ActiveRecord::Schema[7.0].define(version: 2024_03_23_123243) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -39,12 +39,20 @@ ActiveRecord::Schema[7.0].define(version: 2024_03_22_195802) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
-  create_table "references", force: :cascade do |t|
-    t.string "name"
-    t.string "url"
-    t.string "logo"
+  create_table "illustrations", force: :cascade do |t|
+    t.string "category"
+    t.string "html_tag"
+    t.integer "task_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["task_id"], name: "index_illustrations_on_task_id"
+  end
+
+  create_table "references", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.text "description"
   end
 
   create_table "sections", force: :cascade do |t|
@@ -67,6 +75,15 @@ ActiveRecord::Schema[7.0].define(version: 2024_03_22_195802) do
     t.index ["user_id"], name: "index_socials_on_user_id"
   end
 
+  create_table "tags", force: :cascade do |t|
+    t.string "name"
+    t.string "icone"
+    t.integer "task_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["task_id"], name: "index_tags_on_task_id"
+  end
+
   create_table "talents", force: :cascade do |t|
     t.string "name"
     t.string "job"
@@ -78,8 +95,6 @@ ActiveRecord::Schema[7.0].define(version: 2024_03_22_195802) do
   create_table "tasks", force: :cascade do |t|
     t.string "title"
     t.string "description"
-    t.string "category"
-    t.string "icone"
     t.integer "reference_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -101,7 +116,9 @@ ActiveRecord::Schema[7.0].define(version: 2024_03_22_195802) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "illustrations", "tasks"
   add_foreign_key "socials", "talents"
   add_foreign_key "socials", "users"
+  add_foreign_key "tags", "tasks"
   add_foreign_key "tasks", "references"
 end
