@@ -3,6 +3,9 @@
   <head>
     <title>LEADZ</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    <% if current_page?(root_path) %>
+      <meta HTTP-EQUIV="REFRESH" content="6; url=<%= agency_path %>">
+    <% end %>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
@@ -25,8 +28,10 @@
         </div>
       </div>
     <% else %>
-      <%= render "shared/navbar" %>
-      <%= yield %>
+      <div data-controller="change-data" data-displayed="false" data-change-data-data-value="data-displayed" class="data-[displayed=false]:opacity-0 data-[displayed=true]:opacity-1 transition duration-500">
+        <%= render "shared/navbar" %>
+        <%= yield %>
+      </div>
     <% end %>
   </body>
 </html>
