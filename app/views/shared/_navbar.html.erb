@@ -12,21 +12,21 @@
         <div class="hidden sm:block">
           <div class="grid grid-cols-3 gap-4 p-1 border-2 rounded-3xl <%= (current_page?(agency_path) || current_page?(references_path)) ? "border-gray-800 bg-gray-900" : "border-gray-200 bg-gray-100" %>">
             <% if current_page?(agency_path) %>
-              <%= link_to Section.find_by(category: "agency").title.capitalize, agency_path, class: "flex justify-center rounded-3xl px-3 py-2 text-sm font-semibold text-gray-200 bg-gray-700" %>
-              <%= link_to Section.find_by(category: "talent").title.capitalize, talents_path, class: "flex justify-center rounded-3xl px-3 py-2 text-sm font-medium text-gray-400" %>
-              <%= link_to Section.find_by(category: "client").title.capitalize, references_path, class: "flex justify-center rounded-3xl px-3 py-2 text-sm font-medium text-gray-400" %>
+              <%= link_to Section.find_by(category: "agency").title.capitalize, agency_path, class: "flex justify-center rounded-3xl px-3 py-2 text-sm font-bold text-gray-200 bg-gray-700" %>
+              <%= link_to Section.find_by(category: "talent").title.capitalize, talents_path, class: "flex justify-center rounded-3xl px-3 py-2 text-sm font-semibold text-gray-400" %>
+              <%= link_to Section.find_by(category: "client").title.capitalize, references_path, class: "flex justify-center rounded-3xl px-3 py-2 text-sm font-semibold text-gray-400" %>
             <% elsif current_page?(talents_path) %>
-              <%= link_to Section.find_by(category: "agency").title.capitalize, agency_path, class: "flex justify-center rounded-3xl px-3 py-2 text-sm font-medium text-gray-500" %>
-              <%= link_to Section.find_by(category: "talent").title.capitalize, talents_path, class: "flex justify-center rounded-3xl px-3 py-2 text-sm font-semibold text-gray-900 bg-gray-300" %>
-              <%= link_to Section.find_by(category: "client").title.capitalize, references_path, class: "flex justify-center rounded-3xl px-3 py-2 text-sm font-medium text-gray-500" %>
+              <%= link_to Section.find_by(category: "agency").title.capitalize, agency_path, class: "flex justify-center rounded-3xl px-3 py-2 text-sm font-semibold text-gray-700" %>
+              <%= link_to Section.find_by(category: "talent").title.capitalize, talents_path, class: "flex justify-center rounded-3xl px-3 py-2 text-sm font-bold text-gray-900 bg-gray-300" %>
+              <%= link_to Section.find_by(category: "client").title.capitalize, references_path, class: "flex justify-center rounded-3xl px-3 py-2 text-sm font-semibold text-gray-700" %>
             <% elsif current_page?(references_path) %>
-              <%= link_to Section.find_by(category: "agency").title.capitalize, agency_path, class: "flex justify-center rounded-3xl px-3 py-2 text-sm font-medium text-gray-400" %>
-              <%= link_to Section.find_by(category: "talent").title.capitalize, talents_path, class: "flex justify-center rounded-3xl px-3 py-2 text-sm font-medium text-gray-400" %>
-              <%= link_to Section.find_by(category: "client").title.capitalize, references_path, class: "flex justify-center rounded-3xl px-3 py-2 text-sm font-semibold text-gray-200 bg-gray-700" %>
+              <%= link_to Section.find_by(category: "agency").title.capitalize, agency_path, class: "flex justify-center rounded-3xl px-3 py-2 text-sm font-semibold text-gray-400" %>
+              <%= link_to Section.find_by(category: "talent").title.capitalize, talents_path, class: "flex justify-center rounded-3xl px-3 py-2 text-sm font-semibold text-gray-400" %>
+              <%= link_to Section.find_by(category: "client").title.capitalize, references_path, class: "flex justify-center rounded-3xl px-3 py-2 text-sm font-bold text-gray-200 bg-gray-700" %>
             <% else %>
-              <%= link_to Section.find_by(category: "agency").title.capitalize, agency_path, class: "flex justify-center rounded-3xl px-3 py-2 text-sm font-medium text-gray-500" %>
-              <%= link_to Section.find_by(category: "talent").title.capitalize, talents_path, class: "flex justify-center rounded-3xl px-3 py-2 text-sm font-medium text-gray-500" %>
-              <%= link_to Section.find_by(category: "client").title.capitalize, references_path, class: "flex justify-center rounded-3xl px-3 py-2 text-sm font-medium text-gray-500" %>
+              <%= link_to Section.find_by(category: "agency").title.capitalize, agency_path, class: "flex justify-center rounded-3xl px-3 py-2 text-sm font-semibold text-gray-700" %>
+              <%= link_to Section.find_by(category: "talent").title.capitalize, talents_path, class: "flex justify-center rounded-3xl px-3 py-2 text-sm font-semibold text-gray-700" %>
+              <%= link_to Section.find_by(category: "client").title.capitalize, references_path, class: "flex justify-center rounded-3xl px-3 py-2 text-sm font-semibold text-gray-700" %>
             <% end %>
           </div>
         </div>
