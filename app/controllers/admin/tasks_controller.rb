@@ -4,11 +4,11 @@ class Admin::TasksController < ApplicationController
   def edit; end
 
   def update
-    raise
     if @task.update(task_params)
       flash[:notice] = 'Tâche modifiée avec succès'
       redirect_to admin_reference(@task.reference)
     else
+      flash[:alert] = "#{@task.errors.full_messages.join(', ')}."
       render :edit, status: :unprocessable_entity
     end
   end
@@ -25,7 +25,7 @@ class Admin::TasksController < ApplicationController
   def task_params
     params.require(:task).permit(
       :title, :description, illustations_attributes: [:id, :category, :html_tag, images: []],
-      tags_attributes: %i[id name icone]
+      tags_attributes: %i[id name icone _destroy]
     )
   end
 

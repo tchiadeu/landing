@@ -13,11 +13,11 @@ class Admin::ReferencesController < BaseController
 
   def create
     @reference = Reference.new(reference_params)
-    raise
     if @reference.save
       flash[:notice] = 'Référence créée avec succès'
       redirect_to admin_reference_path(@reference)
     else
+      flash[:alert] = "#{@reference.errors.full_messages.join(', ')}."
       render :new, status: :unprocessable_entity
     end
   end
@@ -29,6 +29,7 @@ class Admin::ReferencesController < BaseController
       flash[:notice] = 'Référence modifiée avec succès'
       redirect_to admin_reference_path(@reference)
     else
+      flash[:alert] = "#{@reference.errors.full_messages.join(', ')}."
       render :edit, status: :unprocessable_entity
     end
   end

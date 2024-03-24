@@ -9,12 +9,12 @@
   </div>
   <%= form.text_field :name, placeholder: "Nom du tag", class: "block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 my-2" %>
   <p class="underline text-sm text-gray-700">Sélectionner une icône associée au tag</p>
-  <div class="grid grid-cols-7 gap-2">
-    <% Tag::LIST.each do |tag| %>
+  <div data-controller="change-attribute" class="grid grid-cols-7 gap-2 mt-2">
+    <% Tag::ALL_OPTIONS.each do |tag| %>
       <div class="flex items-center gap-1">
-        <%= form.radio_button :icone, value: tag %>
-        <label class="flex items-center justify-center p-1">
-          <%= svg_tag(tag, class: "w-4 aspect-square stroke-red-500 fill-white", data: {action: "click->exemple-controller#testMethod"}) %>
+        <label data-change-attribute-target="radio" data-action="click->change-attribute#select" class="group hover:bg-indigo-600 flex items-center justify-center cursor-pointer border-2 border-indigo-600 rounded-md p-1">
+          <%= form.radio_button :icone, tag, class: "sr-only" %>
+          <%= svg_tag("icons/#{tag}.svg", class: "w-4 h-4 #{Tag::SOCIALS.include?(tag) ? "fill-indigo-600 group-hover:fill-white" : "stroke-indigo-600 group-hover:stroke-white"}") %>
         </label>
       </div>
     <% end %>
