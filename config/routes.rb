@@ -16,7 +16,7 @@ Rails.application.routes.draw do
     resources :illustrations, only: :destroy
   end
   resources :talents, only: :index
-  resources :references, only: :index
+  resources :references, only: %i[index show]
   get 'agency', to: 'sections#agency'
   get 'contact', to: 'sections#contact', as: 'contact_section'
 

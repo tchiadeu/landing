@@ -1,5 +1,5 @@
 <%= render partial: "form", locals: {
   title: "Modification de #{@reference.name}",
-  url: "admin/references/#{@reference.id}",
+  url: "/admin/references/#{@reference.id}",
   method: :patch
 } %>

@@ -4,14 +4,10 @@ class Admin::TasksController < ApplicationController
   def edit; end
 
   def update
-    tasks_without_illustrations = @task.reference.tasks.select { |task| task.illustrations.empty? }
+    raise
     if @task.update(task_params)
       flash[:notice] = 'Tâche modifiée avec succès'
-      if tasks_without_illustrations.any?
-        redirect_to edit_admin_task_path(tasks_without_illustrations.first)
-      else
-        redirect_to admin_reference(@task.reference)
-      end
+      redirect_to admin_reference(@task.reference)
     else
       render :edit, status: :unprocessable_entity
     end

@@ -13,13 +13,10 @@ class Admin::ReferencesController < BaseController
 
   def create
     @reference = Reference.new(reference_params)
+    raise
     if @reference.save
       flash[:notice] = 'Référence créée avec succès'
-      if @reference.tasks.empty?
-        redirect_to admin_reference_path(@reference)
-      else
-        redirect_to edit_admin_task_path(@reference.tasks.first)
-      end
+      redirect_to admin_reference_path(@reference)
     else
       render :new, status: :unprocessable_entity
     end
