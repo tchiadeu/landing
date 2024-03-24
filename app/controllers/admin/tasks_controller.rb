@@ -1,8 +1,6 @@
 class Admin::TasksController < ApplicationController
   before_action :set_task
 
-  def show; end
-
   def edit; end
 
   def update
