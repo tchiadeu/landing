@@ -10,8 +10,7 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :sections, only: %i[index edit update]
     resources :talents, only: %i[index new create edit update destroy]
-    resources :references do
-    end
+    resources :references
     resources :tasks, only: %i[show edit update destroy]
     resources :tags, only: :destroy
     resources :illustrations, only: :destroy

@@ -7,3 +7,4 @@ pin "@hotwired/stimulus-loading", to: "stimulus-loading.js", preload: true
 pin "stimulus-lightbox", to: "https://ga.jspm.io/npm:stimulus-lightbox@3.2.0/dist/stimulus-lightbox.mjs"
 pin "lightgallery", to: "https://ga.jspm.io/npm:lightgallery@2.7.2/lightgallery.es5.js"
 pin_all_from "app/javascript/controllers", under: "controllers"
+pin "stimulus-rails-nested-form", to: "https://ga.jspm.io/npm:stimulus-rails-nested-form@4.1.0/dist/stimulus-rails-nested-form.mjs"

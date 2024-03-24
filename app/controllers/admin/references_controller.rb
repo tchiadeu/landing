@@ -18,7 +18,7 @@ class Admin::ReferencesController < BaseController
       if @reference.tasks.empty?
         redirect_to admin_reference_path(@reference)
       else
-        redirect_to edit_admin_task(@reference.tasks.first)
+        redirect_to edit_admin_task_path(@reference.tasks.first)
       end
     else
       render :new, status: :unprocessable_entity
@@ -47,7 +47,7 @@ class Admin::ReferencesController < BaseController
   def reference_params
     params.require(:reference).permit(
       :name, :description, :logo,
-      tasks_attributes: %i[id title description]
+      tasks_attributes: %i[id title description _destroy]
     )
   end
 

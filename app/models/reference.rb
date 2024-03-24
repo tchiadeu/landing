@@ -4,5 +4,5 @@ class Reference < ApplicationRecord
 
   validates :name, :logo, presence: true
 
-  accepts_nested_attributes_for :tasks
+  accepts_nested_attributes_for :tasks, allow_destroy: true, reject_if: :all_blank
 end
