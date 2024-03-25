@@ -8,4 +8,8 @@ module ApplicationHelper
     options[:data].each { |key, value| svg["data-#{key}"] = value } if options[:data].present?
     raw svg
   end
+
+  def configured_text(text)
+    text.gsub(/\n/, '<br/>').html_safe
+  end
 end

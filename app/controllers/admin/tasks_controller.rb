@@ -26,7 +26,7 @@ class Admin::TasksController < ApplicationController
 
   def task_params
     params.require(:task).permit(
-      :title, :description, illustrations_attributes: [:id, :category, :_destroy, :html_tag, images: []],
+      :title, :description, illustrations_attributes: [:id, :category, :_destroy, :html_tag, :image],
       tags_attributes: %i[id name icone _destroy]
     )
   end

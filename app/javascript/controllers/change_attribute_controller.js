@@ -39,11 +39,11 @@ export default class extends Controller {
       } else if (value === "youtube" && target.getAttribute("type") === "text") {
         target.setAttribute("data-selected", "true")
         Array.from(targets).find((target) => target.getAttribute("type") === "file").setAttribute("data-selected", "false")
-        target.placeholder = "Coller le blockquote ici"
+        target.placeholder = "Coller le iframe ici"
       } else if (value === "instagram" && target.getAttribute("type") === "text") {
         target.setAttribute("data-selected", "true")
         Array.from(targets).find((target) => target.getAttribute("type") === "file").setAttribute("data-selected", "false")
-        target.placeholder = 'Coller le iframe ici (ne pas cocher "Inclure la légende")'
+        target.placeholder = 'Coller le blockquote ici (ne pas cocher "Inclure la légende")'
       }
     })
   }
