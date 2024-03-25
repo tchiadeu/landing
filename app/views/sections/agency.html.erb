@@ -19,8 +19,8 @@
         <div class="mx-auto max-w-7xl px-6 pb-32 lg:px-8">
           <div class="mx-auto max-w-2xl gap-x-14 lg:mx-0 lg:flex lg:max-w-none lg:items-center">
             <div class="relative w-full max-w-xl lg:shrink-0 xl:max-w-2xl">
-              <h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl"><%= configured_text(Section.find_by(category: "agency").subtitle) %></h1>
-              <p class="mt-6 text-lg leading-8 text-gray-600 sm:max-w-md lg:max-w-none"><%= configured_text(Section.find_by(category: "agency").description) %></p>
+              <h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl"><%= Section.find_by(category: "agency").subtitle %></h1>
+              <p class="mt-6 text-lg leading-8 text-gray-600 sm:max-w-md lg:max-w-none"><%= Section.find_by(category: "agency").description %></p>
               <div class="mt-10 flex items-center gap-x-6">
                 <%= link_to "Contact", contact_section_path, class: "rounded-md bg-black px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-gray-700" %>
                 <%= link_to contact_path, class: "text-sm font-semibold leading-6 text-gray-900" do %>
