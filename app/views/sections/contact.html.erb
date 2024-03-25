@@ -19,7 +19,7 @@
           </div>
         </div>
         <h2 class="text-3xl font-bold tracking-tight text-white"><%= @section.subtitle %></h2>
-        <p class="mt-6 text-lg leading-8 text-gray-300"><%= @section.description %></p>
+        <h3 class="mt-6 text-lg leading-8 text-gray-300"><%= @section.description %></h3>
         <dl class="mt-10 space-y-4 text-base leading-7 text-gray-300">
           <div data-controller="clipboard" data-clipboard-success-content-value="Copié" class="flex items-center gap-x-4 group">
             <dt class="flex-none">
@@ -57,8 +57,8 @@
         <ul role="list" class="mt-10 flex gap-x-6 leading-7">
           <% @user.socials.each do |social| %>
             <li class="hover:scale-110 transition">
-              <%= link_to social.url, target: "_blank", class: "text-gray-400 hover:text-gray-300 flex gap-x-3" do %>
-                <%= image_tag("icons/#{social.name.downcase}.svg", class: "w-5 aspect-square") %>
+              <%= link_to social.url, target: "_blank", class: "group text-gray-400 hover:text-gray-300 flex gap-x-3" do %>
+                <%= svg_tag("icons/#{social.name.downcase}.svg", class: "w-5 aspect-square fill-gray-400 group-hover:fill-gray-300") %>
                 <span><%= social.name %></span>
               <% end %>
             </li>

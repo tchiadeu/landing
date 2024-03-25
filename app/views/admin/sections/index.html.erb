@@ -4,7 +4,7 @@
     <li class="col-span-1 flex rounded-md shadow-sm">
       <div class="flex w-16 flex-shrink-0 items-center justify-center bg-pink-600 rounded-l-md text-sm font-medium text-white bg-indigo-600"><%= section.title.chars.first(2).join.upcase %></div>
       <div class="flex flex-1 items-center justify-between truncate rounded-r-md border-b border-r border-t border-gray-200 bg-white py-5 px-3">
-        <p class="font-medium text-gray-900 hover:text-gray-600"><%= section.title.capitalize %></p>
+        <p class="font-medium text-gray-900 hover:text-gray-600"><%= section.title %></p>
         <div class="flex-shrink-0 pr-2">
           <%= link_to edit_admin_section_path(section) do %>
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 hover:scale-125 transition">

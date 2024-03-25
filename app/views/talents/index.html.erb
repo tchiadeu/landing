@@ -16,11 +16,9 @@
   <div class="mx-auto max-w-7xl px-6 text-center lg:px-8">
     <div class="mx-auto max-w-2xl">
       <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">
-        <%= @section.subtitle.nil? ? @section.title.capitalize : @section.subtitle.capitalize %>
+        <%= @section.subtitle.nil? ? @section.title : @section.subtitle %>
       </h2>
-      <p class="mt-4 text-lg leading-8 text-gray-400">
-        <%= @section.description %>
-      </p>
+      <h3 class="mt-4 text-lg leading-8 text-gray-400"><%= @section.description %></h3>
     </div>
     <ul class="mx-auto mt-20 max-w-2xl gap-6 <%= "flex flex-col sm:flex-row justify-around sm:max-w-none items-center" if @talents.count < 3 %> <%= "grid grid-cols-1 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-3 lg:gap-8" if @talents.count > 2 %>">
       <% @talents.each_with_index do |talent, index| %>
@@ -29,13 +27,13 @@
             <%= cl_image_tag talent.photo.key, class: "mx-auto h-48 w-48 rounded-full md:h-56 md:w-56" %>
             <h3 class="mt-6 text-base font-semibold leading-7 tracking-tight text-white"><%= talent.name %></h3>
             <p class="text-sm leading-6 text-gray-400 mb-6"><%= talent.job %></p>
-            <%= link_to "Contactez nous", contact_section_path, class: "border-2 border-solid border-white rounded-md hover:border-[#{talent.color}] hover:bg-[#{talent.color}] text-sm px-3 py-2 font-bold text-white" %>
+            <%= link_to "Contactez nous", contact_section_path, class: "border-2 border-solid border-white rounded-md text-sm px-3 py-2 font-bold text-white", onmouseover: "this.style.backgroundColor='#{talent.color}';", onmouseout: "this.style.backgroundColor=''" %>
             <ul role="list" class="mt-6 flex justify-center gap-x-6">
               <% talent.socials.each do |social| %>
                 <li>
                   <%= link_to social.url, target: "_blank" do %>
                     <span class="sr-only"><%= social.name %></span>
-                    <%= image_tag("icons/#{social.name.downcase}.svg", class: "w-6 aspect-square hover:rotate-360 transition duration-500") %>
+                    <%= svg_tag("icons/#{social.name.downcase}.svg", class: "w-6 aspect-square fill-gray-400") %>
                   <% end %>
                 </li>
               <% end %>
