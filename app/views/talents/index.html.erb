@@ -31,7 +31,7 @@
             <ul role="list" class="mt-6 flex justify-center gap-x-6">
               <% talent.socials.each do |social| %>
                 <li>
-                  <%= link_to social.url, target: "_blank" do %>
+                  <%= link_to social.url, target: "_blank", class: "group" do %>
                     <span class="sr-only"><%= social.name %></span>
                     <%= svg_tag("icons/#{social.name.downcase}.svg", class: "w-6 aspect-square fill-gray-400") %>
                   <% end %>

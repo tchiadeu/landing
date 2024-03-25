@@ -20,7 +20,7 @@ class Admin::SectionsController < ApplicationController
   private
 
   def section_params
-    params.require(:section).permit(:title, :subtitle, :description)
+    params.require(:section).permit(:title, :subtitle, :description, photos: [])
   end
 
   def set_section
