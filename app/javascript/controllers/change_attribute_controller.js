@@ -2,6 +2,8 @@ import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
   static targets = ["radio"]
+  static values = { data: String }
+
   select(event) {
     this.radioTargets.forEach((radio) => {
       const radioSvg = radio.querySelector("svg")
@@ -23,6 +25,25 @@ export default class extends Controller {
           radioSvg.classList.add("fill-indigo-600")
           radioSvg.classList.remove("fill-white")
         }
+      }
+    })
+  }
+
+  change(event) {
+    const value = event.currentTarget.value
+    const targets = this.element.querySelectorAll("input", `${this.dataValue}`)
+    targets.forEach((target) => {
+      if (value === "screen" && target.getAttribute("type") === "file" ) {
+        target.setAttribute("data-selected", "true")
+        Array.from(targets).find((target) => target.getAttribute("type") === "text").setAttribute("data-selected", "false")
+      } else if (value === "youtube" && target.getAttribute("type") === "text") {
+        target.setAttribute("data-selected", "true")
+        Array.from(targets).find((target) => target.getAttribute("type") === "file").setAttribute("data-selected", "false")
+        target.placeholder = "Coller le blockquote ici"
+      } else if (value === "instagram" && target.getAttribute("type") === "text") {
+        target.setAttribute("data-selected", "true")
+        Array.from(targets).find((target) => target.getAttribute("type") === "file").setAttribute("data-selected", "false")
+        target.placeholder = 'Coller le iframe ici (ne pas cocher "Inclure la légende")'
       }
     })
   }

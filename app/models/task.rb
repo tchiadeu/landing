@@ -5,5 +5,5 @@ class Task < ApplicationRecord
 
   validates :title, :description, presence: true
 
-  accepts_nested_attributes_for :tags, :illustrations, allow_destroy: true
+  accepts_nested_attributes_for :tags, :illustrations, allow_destroy: true, reject_if: :all_blank
 end
