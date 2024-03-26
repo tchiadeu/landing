@@ -43,13 +43,13 @@
             <%= social_form.check_box :_destroy, {class: "h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600", checked: true}, "", 1 %>
             <%= social_form.label name, class: "block text-sm font-semibold leading-6 text-gray-500" %>
           </div>
-          <%= social_form.text_field :url, placeholder: "Copier l'URL", class: "block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" %>
+          <%= social_form.url_field :url, placeholder: "Copier l'URL", class: "block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" %>
         <% else %>
           <div class="flex gap-2 w-40 items-center">
             <%= social_form.check_box :name, {class: "h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"}, name, "" %>
             <%= social_form.label name, class: "block text-sm font-semibold leading-6 text-gray-500" %>
           </div>
-          <%= social_form.text_field :url, placeholder: "Copier l'URL", class: "block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" %>
+          <%= social_form.url_field :url, placeholder: "Copier l'URL", class: "block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" %>
         <% end %>
       </div>
     <% end %>
