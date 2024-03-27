@@ -9,6 +9,7 @@ class Admin::SectionsController < ApplicationController
 
   def update
     if @section.update(section_params)
+      destroy_photo?
       flash[:notice] = "Modifications enregistrées avec succès."
       redirect_to admin_sections_path
     else
@@ -25,5 +26,13 @@ class Admin::SectionsController < ApplicationController
 
   def set_section
     @section = Section.find(params[:id])
+  end
+
+  def destroy_photo?
+    if params[:section][:photo_ids_to_delete].present?
+      params[:section][:photo_ids_to_delete].each do |photo_id|
+        @section.photos.find(photo_id).purge
+      end
+    end
   end
 end

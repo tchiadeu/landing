@@ -8,7 +8,7 @@ class Admin::TasksController < ApplicationController
   def update
     if @task.update(task_params)
       flash[:notice] = 'Tâche modifiée avec succès'
-      redirect_to admin_reference_path(@task.reference)
+      redirect_to admin_task_path(@task)
     else
       flash[:alert] = "#{@task.errors.full_messages.join(', ')}."
       render :edit, status: :unprocessable_entity

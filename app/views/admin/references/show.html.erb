@@ -32,7 +32,7 @@
     <% @reference.tasks.each_with_index do |task, index| %>
       <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
         <dt class="w-full flex flex-col gap-2">
-          <p class="text-sm font-medium text-gray-900"><%= "Tâche #{index + 1} : #{task.title}" %></p>
+          <p class="text-sm font-medium text-gray-900"><%= "Tâche #{index + 1} :" %> <%= task.title %></p>
           <div class="flex border-2 border-indigo-600 rounded-md overflow-hidden w-fit divide-x-2 divide-solid divide-indigo-600">
             <%= link_to admin_task_path(task), class: "px-2 py-1 group hover:bg-indigo-600 w-full flex justify-center" do %>
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 aspect-square text-indigo-600 group-hover:text-white">
